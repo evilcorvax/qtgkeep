@@ -1,7 +1,7 @@
-import PyQt5
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPixmap, QImage, QPalette, QLinearGradient, QColor
-from PyQt5.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QFrame, QLabel, QLineEdit, QPushButton
+import PyQt6
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QPixmap, QImage, QPalette, QLinearGradient, QColor
+from PyQt6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QFrame, QLabel, QLineEdit, QPushButton
 
 from utils.gkeep import GKeepNotes
 
@@ -85,7 +85,7 @@ class LoginScreen(QMainWindow):
 
         button_container = QVBoxLayout()
         button_container.addWidget(login_button)
-        button_container.setAlignment(Qt.AlignHCenter)
+        button_container.setAlignment(Qt.AlignmentFlag.AlignHCenter)
 
         center_layout.addWidget(logo_label)
         center_layout.addWidget(self.login_text_input)
@@ -99,14 +99,17 @@ class LoginScreen(QMainWindow):
         background_gradient.setColorAt(1, QColor("#DD2476"))
 
         back_pallete = QPalette()
-        back_pallete.setBrush(QPalette.Background, background_gradient)
+        
+        #back_pallete.setBrush(QPalette.Background, background_gradient)
+        
+        back_pallete.setBrush(QPalette.ColorRole.Window, background_gradient)
 
         self.setPalette(back_pallete)
 
         frame.setLayout(center_layout)
         frame.setFixedSize(500, 400)
-        center_layout.setAlignment(Qt.AlignCenter)
-        logo_label.setAlignment(Qt.AlignCenter)
+        center_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        logo_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         main_layout.addWidget(frame)
 
