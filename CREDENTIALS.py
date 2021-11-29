@@ -1,2 +1,2 @@
-user_login = "gkeeptesting88@gmail.com"
-user_passwd = "excalibur88"
+# user_login = gmail login
+# user_passwd = gmail passwd
